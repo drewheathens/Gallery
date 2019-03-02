@@ -29,6 +29,7 @@ class Image(models.Model):
 	# location = 
 	# category
 	tags = models.ManyToManyField(tags)
+	image = models.ImageField(upload_to = 'images/')
 
 	@classmethod
     def days_photos(cls,date):
