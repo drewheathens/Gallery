@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 import datetime as dt
 from django.shortcuts import render, redirect
-from models import Images
+from .models import Images
 
 # Create your views here.
 def welcome(request):
