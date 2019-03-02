@@ -7,14 +7,18 @@ class Uploader(models.Model):
 	first_name = models.CharField(max_length = 30)
 	last_name = models.CharField(max_length = 30)
 	email = models.EmailField()
-	#blank =True allows null values into db
-    phone_number = models.CharField(max_length = 10,blank =True)
+	# blank =True allows null values into db
+	phone_number = models.CharField(max_length = 10,blank = True)
 
-    def __str__(self):
-    	return self.first_name
 
-    def save_uploader(self):
-        self.save()
+	def __str__(self):
+		return self.first_name
+
+	def save_uploader(self):
+		self.save()
+
+
+    
 
 class tags(models.Model):
     name = models.CharField(max_length =30)
@@ -22,28 +26,32 @@ class tags(models.Model):
     def __str__(self):
         return self.name
 
-class Image(models.Model):
+class Images(models.Model):
 	uploader = models.ForeignKey(Uploader)
 	name = models.CharField(max_length = 60)
 	description = models.TextField()
+	pub_date = models.DateTimeField(auto_now_add=True)
 	# location = 
 	# category
 	tags = models.ManyToManyField(tags)
-	image = models.ImageField(upload_to = 'images/')
+	images_image = models.ImageField(upload_to = 'images/')
 
 	@classmethod
-    def days_photos(cls,date):
+	def days_photos(cls,date):
             photos = cls.objects.filter(pub_date__date = date)
             return photos
 
 	@classmethod
-    def todays_photos(cls):
+	def todays_photos(cls):
             today = dt.date.today()
             photos = cls.objects.filter(pub_date__date = today)
             return photos
 
 	@classmethod
 	def search_by_title(cls,search_term):
-        #__icontains searches for matches of search term(s)
-        images = cls.objects.filter(title__icontains=search_term)
-        return images
+		#__icontains searches for matches of search term(s)
+		images = cls.objects.filter(title__icontains=search_term)
+		return images
+
+
+        
