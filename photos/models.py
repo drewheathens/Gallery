@@ -11,6 +11,9 @@ class Location(models.Model):
     def __str__(self):
     	return self.location
 
+    class Meta:
+        ordering = ['location']
+
 
     def save_location(self):
         self.save()
@@ -32,9 +35,9 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
-    @classmethod
-    delete_category(cls, category):
-    	cls.objects.filter(category=category).delete()
+    # @classmethod
+    # delete_category(cls, category):
+    # 	cls.objects.filter(category=category).delete()
     		    
 
 class tags(models.Model):
@@ -63,12 +66,7 @@ class Images(models.Model):
             photos = cls.objects.all()
             return photos
 
-	@classmethod
-	def todays_photos(cls):
-            today = dt.date.today()
-            photos = cls.objects.filter(pub_date__date = today)
-            return photos
-
+	
 	@classmethod
 	def search_by_category(cls,search_term):
 		#__icontains searches for matches of search term(s)
