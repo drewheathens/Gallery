@@ -3,6 +3,29 @@ import datetime as dt
 
 
 # Create your models here.
+class Location(models.Model):
+    location_name = models.CharField(max_length=30, unique=True)
+    
+    
+    def __str__(self):
+            return self.location_name
+
+
+    def save_location(self):
+        self.save()
+
+            
+class Category(models.Model):
+    cat_name = models.CharField(max_length=40, unique=True)
+    
+    
+    def __str__(self):
+        return self.cat_name
+
+
+    def save_category(self):
+        self.save()
+
 class Uploader(models.Model):
 	first_name = models.CharField(max_length = 30)
 	last_name = models.CharField(max_length = 30)
@@ -31,8 +54,8 @@ class Images(models.Model):
 	name = models.CharField(max_length = 60)
 	description = models.TextField()
 	pub_date = models.DateTimeField(auto_now_add=True)
-	# location = 
-	# category
+	location = models.ForeignKey(Location)
+	category = models.ForeignKey(Category)
 	tags = models.ManyToManyField(tags)
 	images_image = models.ImageField(upload_to = 'images/')
 
@@ -54,4 +77,3 @@ class Images(models.Model):
 		return images
 
 
-        
