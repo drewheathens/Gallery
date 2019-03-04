@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q
+
 import datetime as dt
 
 
@@ -10,9 +11,6 @@ class Location(models.Model):
     
     def __str__(self):
     	return self.location
-
-    class Meta:
-        ordering = ['location']
 
 
     def save_location(self):
@@ -46,14 +44,14 @@ class tags(models.Model):
     def __str__(self):
         return self.name
 
-class Images(models.Model):
+class Image(models.Model):
 	name = models.CharField(max_length = 60)
 	description = models.TextField()
-	pub_date = models.DateTimeField(auto_now_add=True)
+	post_date = models.DateTimeField(auto_now_add=True)
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
 	category = models.ManyToManyField(Category)
 	tags = models.ManyToManyField(tags)
-	images = models.ImageField(upload_to = 'images/')
+	image = models.ImageField(upload_to = 'images/')
 
 	def __str__(self):
 		return self.title
@@ -70,7 +68,7 @@ class Images(models.Model):
 	@classmethod
 	def search_by_category(cls,search_term):
 		#__icontains searches for matches of search term(s)
-		images = cls.objects.filter(Q(category__category=search_term) | Q(title__icontains = search_term) | Q(location__location= search_term))
+		photos = cls.objects.filter(Q(category__category=search_term) | Q(title__icontains = search_term) | Q(location__location= search_term))
 
 		return photos
 
