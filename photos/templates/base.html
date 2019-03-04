@@ -4,16 +4,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    
     {% if title %}
-    <title>My Gallery</title>
+    <title>Gallery</title>
     {% else %}
-    <title>My Gallery</title>
+    <title>Gallery</title>
     {% endif %}
 
     {% block styles %}
       {% bootstrap_css %}
       <link rel="stylesheet" href="{% static 'css/images.css' %}">
+      <style type="text/css">
+        h1{
+          text-decoration: underline;
+          font-style: italic;
+          text-decoration-style: bold;
+        }
+      </style>
 
     {% endblock %}
     <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFtFJN5Zbgb7hAJXx5-MSm_OVvDE_2CtOQQ9eHttZl5kxZ2etjkQ"/>
@@ -22,7 +29,7 @@
   <body>
     {% include "navbar.html" %}
     {% block content %}
-      <h1 class="text-center">My Gallery</h1>
+      <h1 class="text-center">Gallery.</h1>
 
     {% endblock%}
 
