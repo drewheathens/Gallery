@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style type="text/css">
+  h2{
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+
+</style>
 <div class="container">
   <div class="row">
     {% if images %}
@@ -14,7 +22,7 @@
   {% if images %}
     {% for image in images %}
     <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 padding-0">
-      <img src="{{image.image.url}}" class=" img img-responsive" data-toggle="modal" data-target="#{{image.id}}">
+      <img src="{{image.image.url}}" class=" img img-responsive" hover="opacity : 0.3;" data-toggle="modal" data-target="#{{image.id}}">
     </div>
 
     <!-- Modal -->
