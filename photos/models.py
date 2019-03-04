@@ -23,7 +23,7 @@ class Location(models.Model):
 
             
 class Category(models.Model):
-    category = models.CharField(max_length=40)
+    category = models.CharField(max_length=100)
     
     
     def __str__(self):
@@ -33,28 +33,18 @@ class Category(models.Model):
     def save_category(self):
         self.save()
 
-    # @classmethod
-    # delete_category(cls, category):
-    # 	cls.objects.filter(category=category).delete()
-    		    
-
-class tags(models.Model):
-    name = models.CharField(max_length =30)
-
-    def __str__(self):
-        return self.name
+  
 
 class Image(models.Model):
 	name = models.CharField(max_length = 60)
 	description = models.TextField()
-	post_date = models.DateTimeField(auto_now_add=True)
+	date_posted = models.DateTimeField(auto_now_add=True)
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
-	category = models.ManyToManyField(Category)
-	tags = models.ManyToManyField(tags)
+	category = models.ForeignKey(Category, blank=True, default='lol.jpg')
 	image = models.ImageField(upload_to = 'images/')
 
 	def __str__(self):
-		return self.title
+		return self.name
 
 	def save_images(self):
 		self.save
@@ -68,7 +58,7 @@ class Image(models.Model):
 	@classmethod
 	def search_by_category(cls,search_term):
 		#__icontains searches for matches of search term(s)
-		photos = cls.objects.filter(Q(category__category=search_term) | Q(title__icontains = search_term) | Q(location__location= search_term))
+		photos = cls.objects.filter(category__category__icontains=search_term)
 
 		return photos
 
