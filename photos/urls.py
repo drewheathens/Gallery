@@ -5,10 +5,8 @@ from django.conf.urls.static import static
  
 
 urlpatterns=[
-    # url('^$',views.welcome,name = 'welcome'),
-    # convert date to day
-    url(r'^$',views.images,name='Images'),
-    #  return news from those dates
+    
+    url(r'^$',views.images,name='images'),    
     url(r'^search/', views.search_results, name='search_results'),
     
 ]
