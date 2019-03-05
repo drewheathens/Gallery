@@ -3,21 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=dancing script' rel='stylesheet'>
 
     <link rel="stylesheet" href="../static/css/images.css">
 
 
   </head>
   <body>
-
-    <nav class="navbar navbar-inverse ">
+  <div class="col-sm-4  col-md-4 col-lg-12">
+      <nav class="navbar navbar-light" style="border-bottom: solid;">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="{% url 'images' %}" style="font-size:28px;">To Gallery</a>
 
+
         </div>
 
         <div class="col-sm-4 col-md-4 navbar-right">
+        
+
           <form class="navbar-form" role="search" action="{% url 'search_results'%}">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search for Image" name="images">
@@ -29,6 +33,14 @@
         </div>
       </div>
     </nav>
+    
+  </div>
+
+
+
 
   </body>
 </html>
+
+
+

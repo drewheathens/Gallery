@@ -2,6 +2,8 @@ h1{
 	
 	font-style: italic;
 	font-weight: bold;
+	font-family: 'dancing script';
+	font-size: 22px;
 	}
 h2{
     font-style: italic;
@@ -30,3 +32,4 @@ body,html{
 .padding-2{
     padding-right:1;
     padding-left:0;
+}
