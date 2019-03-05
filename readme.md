@@ -35,6 +35,7 @@ The project is still under development
 ## CONTRIBUTION
 
 When contributing to this repository, please first discuss the change you wish to make via issue.
+contact me at mudavadie@gmail.com
 
 
 ## LICENSE
