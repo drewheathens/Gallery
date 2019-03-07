@@ -5,6 +5,7 @@ Photography keeps memories alive.
 Gallery is an app that allows user(s) to upload photos, view them, search by category name, get their storage locations and if need be copy on clipboard.
 
 ## USAGE & INSTALLATION
+- visit https://galerey.herokuapp.com/
 - Clone the repository
 - create virtual environment by running
 1. python3.6 -m venv --without-pip virtual
