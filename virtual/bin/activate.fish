@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/evans/Desktop/core/python/Gallery/virtual"
+set -gx VIRTUAL_ENV "/home/evans/Documents/documents/core/python/Gallery/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
