@@ -15,7 +15,7 @@ Gallery is an app that allows user(s) to upload photos, view them, search by cat
 - exit by user# \q
 - python manage.py makemigrations photos
 - python manage.py migrate (to apply changes)
--in terminal run
+- in terminal run
 python3.6 manage.py runserver
 
 ## BDD
