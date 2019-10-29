@@ -11,7 +11,7 @@ Gallery is an app that allows user(s) to upload photos, view them, search by cat
 1. python3.6 -m venv --without-pip virtual
 2. source virtual/bin/activate
 3. curl https://bootstrap.pypa.io/get-pip.py | python
-- navigate to psql in terminal and create a database called galleryapp and set password by username# **\password**.
+- navigate to $**psql** in terminal and create a database called **galleryapp** and set password as "**wewe**" by username# **\password**.
 - exit by username# **\q**
 - **python manage.py makemigrations photos**
 - **python manage.py migrate** (to apply changes)
